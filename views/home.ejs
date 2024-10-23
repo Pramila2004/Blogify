@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include('./partials/head') %>
+    
+    <title>Home Page</title>
+</head>
+<body>
+
+    <%- include('./partials/nav') %> 
+
+    <div class="container mt-3">
+        <div class="row">
+          <% blogs.forEach(blog => { %>
+            <div class="col-md-3 mb-4"> <!-- Set the column width and add margin for spacing -->
+              <div class="card h-100" style="width: 100%;"> <!-- Full width card and h-100 to maintain equal height -->
+                <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= blog.title %></h5>
+                  <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+      
+    
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>
